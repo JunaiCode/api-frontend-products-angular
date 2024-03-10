@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Registrarse</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required formControlName="email">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required formControlName="password">
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
+    <a (click)="goToLogin()"> Iniciar Sesion </a>
+</div>

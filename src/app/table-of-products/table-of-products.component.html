@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="containerCloseSession">
+    <h1>Almacenes Pepe Ganga</h1>
+    <button (click)="logout()">Cerrar Sesion</button>
+    </div>
+    <div class="containerBtns">
+    <input type="text">
+    <button class="search">Buscar</button>
+    <button class="add">Agregar</button>
+    </div>
+    <table class="table center">
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for (product of products; track $index) {
+                <tr>
+                    <td>{{product.name | uppercase}}</td>
+                    <td>{{product.price | currency}}</td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <div class="flex">
+                        <button>Editar</button>
+                        <button (click)="deleteProduct(product.id)">Eliminar</button>
+                    </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+      </table>
+</div>
+

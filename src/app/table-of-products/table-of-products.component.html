@@ -6,7 +6,25 @@
     <div class="containerBtns">
     <input type="text">
     <button class="search">Buscar</button>
-    <button class="add">Agregar</button>
+    <button  class="openModal" (click)="openModal()">Agregar</button>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>{{h2}}</h2>
+        <form id="productForm" [formGroup]="productForm" (ngSubmit)="sendProduct()"  method="post">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre"  required formControlName="name"><br>
+  
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" name="precio" required formControlName="price"><br>
+          <label for="precio">Stock:</label>
+          <input type="number" id="stock" name="stock" required formControlName="stock"><br>
+          <label for="descripcion">Descripción:</label><br>
+          <textarea id="descripcion" name="descripcion" rows="4" required formControlName="description"></textarea><br>
+          <input type="submit" value="Enviar">
+        </form>
+      </div>
     </div>
     <table class="table center">
         <thead>
@@ -25,7 +43,7 @@
                     <td>{{product.description}}</td>
                     <td>
                         <div class="flex">
-                        <button>Editar</button>
+                        <button (click)="openModal(product.id)">Editar</button>
                         <button (click)="deleteProduct(product.id)">Eliminar</button>
                     </div>
                     </td>

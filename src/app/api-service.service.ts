@@ -30,7 +30,8 @@ export class ApiServiceService {
   }
 
   deleteProduct(id: number,token: string) {
-    return this._http.delete(`${this.baseUrl}/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+    console.log(`${this.baseUrl}/products/${id}`);
+    return this._http.delete(`${this.baseUrl}/products/${id}`, {headers: { Authorization: `Bearer ${token}` } });
   }
 
   addProduct(product:  Product,token: string) {
